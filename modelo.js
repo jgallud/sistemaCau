@@ -41,7 +41,15 @@ function Gestor(sistema){
 	}
 	this.asignarTecnico=function(codigo,nickTecnico){
 		let incidencia=this.incidencias[codigo];
-		incidencia.asignarTecnico(nickTecnico,this)
+		if (sistema.tecnicos[nickTecnico]){
+			incidencia.asignarTecnico(nickTecnico)
+		}
+	}
+	this.cerrarIncidencia=function(codigo,nickTecnico){
+		let incidencia=this.incidencias[codigo];
+		if (incidencia.tecnico==nickTecnico){
+			incidencia.cerrarIncidencia();
+		}
 	}
 }
 
@@ -53,8 +61,11 @@ function Incidencia(nick,servicio){
 	this.descripcion
 	this.fecha=new Date().toDateString();
 	this.tecnico;
-	this.asignarTecnico=function(nick,gestor){
+	this.asignarTecnico=function(nick){
 		this.estado.asignarTecnico(nick,this);
+	}
+	this.cerrarIncidencia=function(){
+		this.estado.cerrarIncidencia(this);
 	}
 }
 
@@ -64,15 +75,20 @@ function Abierta(){
 		incidencia.tecnico=nick;
 		incidencia.estado=new Asignada();
 	}
+	this.cerrarIncidencia=function(incidencia){}
 }
 
 function Asignada(){
 	this.nombre="asignada";
 	this.asignarTecnico=function(nick,incidencia){}
+	this.cerrarIncidencia=function(incidencia){
+		incidencia.estado=new Cerrada();
+	}
 }
 
 function Cerrada(){
 	this.nombre="cerrada";
 	this.asignarTecnico=function(nick,incidencia){}
+	this.cerrarIncidencia=function(incidencia){}
 }
 
