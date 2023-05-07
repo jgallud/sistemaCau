@@ -1,0 +1,23 @@
+{
+  "name": "sistemacau",
+  "version": "1.0.0",
+  "description": "Prototipo sistema CAU",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgallud/sistemaCau.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgallud/sistemaCau/issues"
+  },
+  "homepage": "https://github.com/jgallud/sistemaCau#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

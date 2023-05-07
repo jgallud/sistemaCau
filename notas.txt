@@ -1,0 +1,13 @@
+Cambios en el modelo (capa lógica):
+- incidencias pasa de {} a []
+
+
+Tareas:
+- crear carpeta cliente y servidor
+- index.js --> copiar código zona de código
+- crear package.json (npm init)
+- lista de funciones:
+	- obtener lista de usuarios
+	- obtener lista de técnicos
+	- obtener lista de incidencias
+
