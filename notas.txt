@@ -1,3 +1,15 @@
+Resumen clase anterior:
+- arquitectura en capas
+- aplicación completa: https://batallaobs-vyqothtfta-ew.a.run.app
+- referencias del buen diseño:
+	- design patterns
+	- principios SOLID: https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
+- pruebas:
+	- instalar dependencia de jasmine-node en package.json
+	- npm install
+	- crear modeloSpec.js
+
+
 Cambios en el modelo (capa lógica):
 - incidencias pasa de {} a []
 
