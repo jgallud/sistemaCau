@@ -17,7 +17,13 @@ app.get("/", function(request,response){
 
 app.get("/agregarUsuario/:nick",function(request,response){
   let nick = request.params.nick;
-  let res=sistema.agregarUsuario(nick);
+  let res=sistema.agregarUsuario(nick,"normal");
+  response.send(res); 
+});
+
+app.get("/agregarTecnico/:nick",function(request,response){
+  let nick = request.params.nick;
+  let res=sistema.agregarUsuario(nick,"tecnico");
   response.send(res); 
 });
 

@@ -2,17 +2,17 @@ function Sistema(){
 	this.usuarios={}
 	this.tecnicos={}
 	this.gestor=new Gestor(this);
-	this.agregarUsuario=function(nick){
+	this.agregarUsuario=function(nick,rol){
 		let res={"res":"nook"};
 		if (!this.usuarios[nick]){
-				this.usuarios[nick]=new Usuario(nick);
+				this.usuarios[nick]=new Usuario(nick,rol);
 				res={"res":"ok"};
 		}
 		return res;
 	}
-	this.agregarTecnico=function(nick){
-		this.tecnicos[nick]=new Tecnico(nick);
-	}
+	// this.agregarTecnico=function(nick){
+	// 	this.tecnicos[nick]=new Tecnico(nick);
+	// }
 	this.crearIncidencia=function(nick,servicio){
 		let codigo=-1;
 		if (this.usuarios[nick]){
@@ -26,20 +26,36 @@ function Sistema(){
 	this.obtenerUsuarios=function(){
 		let lista=[];
 		for (let key in this.usuarios){
-			lista.push({"nick":key});
+			lista.push({"nick":key,"rol":this.usuarios[key].rol});
 		}
 		return lista;
 	}
+	this.obtenerTecnicos=function(){
+		let lista=[];
+		let rol="tecnico";
+		for (let key in this.usuarios){
+			if (this.usuarios[key].rol==rol)
+			{
+				lista.push({"nick":key,"rol":this.usuarios[key].rol});
+			}
+		}
+		return lista;	
+	}
+	this.obtenerUsuario=function(nick){
+		return this.usuarios[nick];
+	}
+
 }
 
-function Usuario(nick){
+function Usuario(nick,rol){
 	this.nick=nick;
+	this.rol=rol;
 }
 
-function Tecnico(nick){
-	this.nick=nick;
-	this.servicio;
-}
+// function Tecnico(nick){
+// 	this.nick=nick;
+// 	this.servicio;
+// }
 
 function Gestor(sistema){
 	this.sistema=sistema;

@@ -12,6 +12,7 @@ Resumen clase anterior:
 
 Cambios en el modelo (capa lógica):
 - incidencias pasa de {} a []
+- manejamos usuarios con rol
 
 
 Tareas:
