@@ -32,9 +32,8 @@ function Sistema(){
 	}
 	this.obtenerTecnicos=function(){
 		let lista=[];
-		let rol="tecnico";
 		for (let key in this.usuarios){
-			if (this.usuarios[key].rol==rol)
+			if (this.usuarios[key].esTecnico())
 			{
 				lista.push({"nick":key,"rol":this.usuarios[key].rol});
 			}
@@ -44,12 +43,21 @@ function Sistema(){
 	this.obtenerUsuario=function(nick){
 		return this.usuarios[nick];
 	}
+	this.obtenerTecnico=function(nick){
+		if (this.usuarios[nick] && this.usuarios[nick].esTecnico()){
+			return this.usuarios[nick];	
+		}
+		return undefined;
+	}
 
 }
 
 function Usuario(nick,rol){
 	this.nick=nick;
 	this.rol=rol;
+	this.esTecnico=function(){
+		return this.rol=="tecnico";
+	}
 }
 
 // function Tecnico(nick){

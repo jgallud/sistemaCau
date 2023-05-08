@@ -8,6 +8,7 @@ Resumen clase anterior:
 	- instalar dependencia de jasmine-node en package.json
 	- npm install
 	- crear modeloSpec.js
+- despliegue con gcloud run deploy
 
 
 Cambios en el modelo (capa lógica):

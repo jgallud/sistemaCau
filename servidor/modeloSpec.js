@@ -17,7 +17,7 @@ describe("El sistema CAU...", function() {
     expect(us1.nick).toEqual("pepe");
     expect(us2.nick).toEqual("luis");
     expect(us3.nick).toEqual("luisa");
-    expect(us3.rol).toEqual("tecnico");
+    expect(us3.esTecnico()).toEqual(true);
   });
 
 });
